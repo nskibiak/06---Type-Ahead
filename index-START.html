@@ -23,13 +23,24 @@
         response.json().then((json) => cities.push(...json))
       );
 
-      function findMatched(wordToMatch, cities) {
+      function findMatches(wordToMatch, cities) {
         return cities.filter((place) => {
           // TODO
           const regex = new RegExp(wordToMatch, 'gi');
           return place.city.match(regex) || place.city.match(regex);
         });
       }
+
+      function displayMatches() {
+        console.log(this.value);
+      }
+
+      const searchInput = document.querySelector('.search');
+      const suggestions = document.querySelector('.suggestions');
+
+      searchInput.addEventListener('change', displayMatches);
+      searchInput.addEventListener('keyup', displayMatches);
+
     </script>
   </body>
 </html>
